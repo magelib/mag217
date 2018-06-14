@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 MagestyApps. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="cms_page_save_before">
+        <observer name="save_custom_cms_breadcrumbs" instance="MagestyApps\AdvancedBreadcrumbs\Observer\CmsPageSaveBefore" />
+    </event>
+    <event name="cms_page_load_after">
+        <observer name="load_custom_cms_breadcrumbs" instance="MagestyApps\AdvancedBreadcrumbs\Observer\CmsPageLoadAfter" />
+    </event>
+</config>

@@ -1,0 +1,21 @@
+{
+  "name": "magestyapps/module-advancedbreadcrumbs",
+  "description": "Advanced Breadcrumbs module for Magento 2",
+  "require": {
+    "php": ">=5.5.0",
+    "magento/module-catalog": ">=100.0",
+    "magento/module-ui": ">=100.0"
+  },
+  "type": "magento2-module",
+  "version": "2.1.1",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "MagestyApps\\AdvancedBreadcrumbs\\": ""
+    }
+  }
+}
