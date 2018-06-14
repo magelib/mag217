@@ -6,10 +6,8 @@ to "repositories"
              "type": "vcs",
              "url": "http://products.git.devoffice.com/magento/magento2_blog.git"
          }
-
 2. Run
 composer require templatemonster/module-blog
-
 3. Run
 php bin/magento module:enable TemplateMonster_Blog
 
