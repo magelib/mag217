@@ -1,0 +1,513 @@
+/*
+* @subsection   RD Navbar
+*
+* @description  Describes style declarations for RD Navbar extension
+*/
+@import "../_variables.scss";
+@import "../_mixins.scss";
+
+
+%rd-navbar-transition {
+    transition: .3s all cubic-bezier(0.785, 0.135, 0.150, 0.860);
+}
+
+%rd-navbar-hidden {
+    display: none;
+}
+
+%rd-navbar-visible {
+    display: block;
+}
+
+.rd-navbar--no-transition {
+    &, * {
+        transition: none !important;
+    }
+}
+
+.rd-navbar-wrap {
+    @extend %rd-navbar-transition;
+}
+
+.rd-navbar, .rd-navbar.rd-navbar--is-clone {
+    @extend %rd-navbar-hidden;
+}
+
+.rd-navbar-fixed,
+.rd-navbar-static,
+.rd-navbar-fullwidth,
+.rd-navbar-sidebar {
+    @extend %rd-navbar-visible;
+}
+
+.rd-navbar-outer {
+    color: $rd-navbar-default-color;
+    background: $rd-navbar-contrast-color;
+}
+
+.rd-navbar-collapse,
+.rd-navbar-collapse-toggle{
+    display: none;
+
+    .switcher.currency,
+    .switcher.language{
+        display: none;
+    }
+}
+
+.rd-navbar-fixed-linked body{
+    padding-top: $rd-navbar-panel-height;
+}
+
+.rd-navbar-nav,
+.rd-navbar-toggle{
+    display: none;
+}
+
+.rd-navbar-brand{
+    display: none;
+    color: $rd-navbar-contrast-color;
+}
+
+/*
+* @subsection   RD Navbar Static
+*
+* @description  Describes style declarations for RD Navbar in static mode
+*/
+
+.rd-navbar-static {
+    .rd-navbar-nav-wrap,
+    .rd-navbar-search-wrap {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .rd-navbar-nav-wrap {
+        width: 100%;
+    }
+
+    &.rd-navbar--is-clone {
+        @extend %rd-navbar-transition;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        @include transform(translateY(-105%));
+        z-index: 20;
+
+        .rd-navbar-panel {
+            display: none;
+        }
+
+        &.rd-navbar--is-stuck {
+            @include transform(translateY(0));
+        }
+    }
+
+    &.rd-navbar--is-stuck {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        z-index: 20;
+
+        .page-header__panel {
+            display: none;
+        }
+
+        .page-header__content {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    }
+
+    .rd-navbar-inner{
+        max-width: 1200px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .rd-navbar-collapse{
+        display: block;
+        float: right;
+        margin-left: -15px;
+        margin-top: 0;
+
+        li{
+            display: inline-block;
+            margin-left: 15px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .02em;
+
+            a {
+                color: $accent;
+
+                &:hover,
+                &:focus {
+                    color: $white;
+                }
+            }
+        }
+
+        .header.links .link{
+            &.compare,
+            &.wishlist{
+                span {
+                    &:before,
+                    &:after {
+                        position: relative;
+                        top: -1px;
+                    }
+                }
+
+                span:before{
+                    content: '(';
+                }
+                span:after{
+                    content: ')';
+                }
+            }
+        }
+    }
+
+    .rd-navbar-panel{
+        @include clearfix;
+        padding: 0;
+    }
+
+//    Brand
+
+    .rd-navbar-brand{
+        display: inline-block;
+        float: left;
+        > *{
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        > img{
+            margin-right: 10px;
+        }
+
+        > a{
+            font-size: 36px;
+            line-height: 48px;
+
+            span{
+                display: none;
+            }
+        }
+    }
+}
+
+/*
+* @subsection   RD Navbar Fixed
+*
+* @description  Describes style declarations for RD Navbar in fixed mode
+*/
+
+.rd-navbar-fixed{
+    .rd-navbar-collapse{
+        display: block;
+        @extend %rd-navbar-transition;
+        text-align: left;
+        position: fixed;
+        top: 4px;
+        right: 4px;
+        color: $rd-navbar-contrast-color;
+        padding: 48px 15px 15px;
+        z-index: 19;
+        width: 250px;
+        box-shadow: 0 0 0 0 nth($rd-navbar-shadow, 5);
+        visibility: hidden;
+        overflow: hidden;
+        transition: .3s box-shadow ease .2s;
+
+        &:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: $rd-navbar-default-color;
+            width: 48px;
+            height: 48px;
+            @include transform(scale(0));
+            @extend %rd-navbar-transition;
+        }
+
+        li{
+            position: relative;
+            opacity: 0;
+            transition: .3s all ease 0s;
+        }
+
+
+        > li > a{
+            display: block;
+            padding: 11px 16px;
+
+            &:hover{
+                background: lighten($rd-navbar-contrast-color, 75%);
+            }
+        }
+
+        &.active{
+            visibility: visible;
+            box-shadow: $rd-navbar-shadow;
+
+            li{
+                transition: .3s all ease .2s;
+                opacity: 1;
+            }
+
+            &:before{
+                background: $rd-navbar-default-color;
+                @include transform(scale(25));
+            }
+        }
+        .switcher.currency,
+        .switcher.language{
+            display: block;
+            margin: 0;
+            line-height: 1;
+
+            .actions .action{
+                background: none;
+                padding: 0;
+            }
+            strong{
+                font-weight: normal;
+            }
+            .dropdown .mage-dropdown-dialog{
+                position: relative;
+                width: 217px;
+                padding: 7px 0;
+                margin: 0;
+            }
+        }
+
+        .links {
+            li{
+                display: block;
+                margin: 0;
+
+                a{
+                    color: $rd-navbar-contrast-color;
+                    &:hover{
+                        color: $rd-navbar-hover-color;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .navigation li.level-top .megamenu-wrapper.rd-navbar-megamenu {
+        .level1 > .ui-menu-item > a {
+            padding-left: 30px;
+            text-transform: uppercase;
+            letter-spacing: .02em;
+        }
+    }
+
+    .switcher.currency,
+    .switcher.language{
+        display: none;
+    }
+
+    .rd-navbar-collapse-toggle{
+        display: block;
+        position: fixed;
+        top: 4px;
+        right: 4px;
+        font-family: $fa;
+        width: 48px;
+        height: 48px;
+        @include toggle-icons-via-rotation(48px, 28px, $rd-navbar-contrast-color, '\f142', '\f141');
+        z-index: 20;
+    }
+
+//    Toggles
+
+    .rd-navbar-toggle {
+        display: block;
+        @include toggle-lines-to-arrow($rd-navbar-panel-height, 24px, $rd-navbar-contrast-color);
+    }
+
+    .rd-navbar-nav-wrap {
+        @extend %rd-navbar-transition;
+        position: fixed;
+        top: -56px;
+        left: 0;
+        width: 280px;
+        padding: 112px 0 56px;
+        bottom: -56px;
+        color: $rd-navbar-default-color;
+        background: $rd-navbar-default-color;
+        box-shadow: $rd-navbar-shadow;
+        z-index: 15;
+        @include transform(translateX(-105%));
+
+        &.active {
+            @include transform(translateX(0));
+        }
+    }
+
+    .rd-navbar-nav {
+        display: block;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        font-size: 16px;
+        line-height: 26px;
+        text-align: left;
+
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            height: 8px;
+        }
+
+        li {
+            > a {
+                display: block;
+                padding: 11px 56px 11px 16px;
+                color: $rd-navbar-contrast-color;
+            }
+
+            &.opened > a,
+            &.active > a,
+            a:hover {
+                color: $white;
+                background: $rd-navbar-hover-color;
+            }
+
+            &.opened > a,
+            &.active > a {
+                &:hover{
+                    color: $white;
+                    background: $rd-navbar-hover-color;
+                }
+            }
+
+            &+ li, .rd-navbar-dropdown, .rd-navbar-megamenu {
+                margin-top: 2px;
+            }
+        }
+    }
+
+    .rd-navbar-dropdown,
+    .rd-navbar-megamenu {
+        display: none;
+    }
+
+    .rd-navbar-submenu {
+        position: relative;
+        @extend %rd-navbar-transition;
+
+        li > a {
+            padding-left: 32px;
+        }
+
+        &.opened {
+            > .rd-navbar-dropdown,
+            > .rd-navbar-megamenu {
+                display: block;
+            }
+        }
+    }
+
+    .rd-navbar-submenu-toggle {
+        @extend %rd-navbar-transition;
+        position: absolute;
+        z-index: 999;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 47px;
+        line-height: 47px;
+        text-align: center;
+        color: $rd-navbar-contrast-color;
+        cursor: pointer;
+        @include font-icon('\e313');
+        &:before{
+            padding-top: 12px;
+        }
+    }
+    .opened > .rd-navbar-submenu-toggle{
+        @include font-icon('\e316');
+    }
+
+    .rd-navbar-panel-canvas{
+        position: fixed;
+        height: $rd-navbar-panel-height;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: $rd-navbar-default-color;
+        z-index: 16;
+    }
+    .rd-navbar-panel:after{
+        content: '';
+        position: fixed;
+        z-index: 0;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: $rd-navbar-panel-height;
+        box-shadow: $rd-navbar-shadow;
+    }
+
+    .rd-navbar-toggle{
+        position: fixed;
+        z-index: 17;
+        top: 0;
+        left: 0;
+        background: transparent;
+
+        &.active{
+            background: $rd-navbar-default-color;
+        }
+    }
+
+//    Brand
+
+    .rd-navbar-brand{
+        display: block;
+        text-align: left;
+        position: fixed;
+        top: 4px;
+        left: 56px;
+        right: 112px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 22px;
+        line-height: 46px;
+        height: 48px;
+        z-index: 17;
+
+        img{
+            display: none;
+        }
+
+        a{
+            display: inline-block;
+        }
+    }
+
+    .block-search.rd-navbar-search {
+        .block-content.form-group {
+            .control .input-text {
+                color: $white;
+                background: $default;
+                border-color: #1c344e;
+            }
+        }
+    }
+}

@@ -1,0 +1,243 @@
+.rd-parallax {
+    position: relative;
+
+    .background-video {
+        background-position: top center;
+        background-repeat: no-repeat;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+
+    video,
+    source {
+        bottom: 0;
+        left: 0;
+        min-height: 100%;
+        min-width: 100%;
+        position: absolute;
+    }
+
+    .loaded .ytplayer-container {
+        display: block;
+    }
+
+    .loaded .placeholder-image {
+        opacity: 0;
+    }
+
+    .ytplayer-container {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        min-width: 100%;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 3;
+    }
+
+    .placeholder-image {
+        height: 100%;
+        left: 0;
+        min-height: 100%;
+        min-width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+    }
+
+    .ytplayer-shield {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .ytplayer-player {
+        position: absolute;
+    }
+
+    .container {
+        border-radius: 6px;
+        background: rgba(255, 255, 255, .9);
+        padding: 0 30px 0 30px;
+        margin: 30px auto;
+    }
+}
+
+.parallax-container.parallax-1 {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.parallax-1 {
+    .rd-parallax-inner {
+        min-height: 440px;
+
+        .parallax-title,
+        .parallax-description {
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .parallax-title {
+            font-weight: 700;
+            font-size: 36px;
+        }
+
+        .parallax-description {
+            font-size: 18px;
+            letter-spacing: .04em;
+        }
+
+        .btn {
+            @include button-block;
+        }
+
+        .btn-primary {
+            @include button-block__primary;
+
+            &:hover {
+                color: $default;
+                background: $white;
+            }
+        }
+
+        @media (min-width: $screen-xs-min) {
+            min-height: 490px;
+
+            .parallax-title {
+                font-size: 42px;
+            }
+        }
+        @media (min-width: $screen-md-min) {
+            min-height: 560px;
+
+            .parallax-title {
+                font-size: 62px;
+            }
+
+            .parallax-description {
+                font-size: 26px;
+            }
+        }
+        @media (min-width: $screen-lg-min) {
+            min-height: 760px;
+
+            .parallax-title {
+                font-size: 102px;
+                line-height: 97px;
+            }
+
+            .parallax-description {
+                font-size: 32px;
+            }
+
+            .btn {
+                position: relative;
+                padding: 20px 38px;
+                overflow: hidden;
+                transition: .6s all ease !important;
+
+                &:before,
+                &:after {
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 0 0 0 0;
+                    position: absolute;
+                    -webkit-transition: 0.5s;
+                    transition: .4s;
+                    z-index: -1;
+                }
+
+                &:before {
+                    border-color: transparent transparent transparent $white;
+                    bottom: 0;
+                    left: 0;
+                }
+
+                &:after {
+                    border-color: transparent $white transparent transparent;
+                    top: 0;
+                    right: 0;
+                }
+
+                &:hover {
+                    &:before {
+                        border-width: 165px 0 0 165px;
+                    }
+
+                    &:after {
+                        border-width: 0 165px 165px 0;
+                    }
+                }
+            }
+
+            .btn-primary {
+                &:hover {
+                    background: $primary;
+                }
+            }
+        }
+        @media (max-width: $screen-lg-min - 1) {
+            .parallax-divider {
+                transform: translate3d(0px, 90.5px, 0px) !important;
+            }
+            .parallax-title {
+                transform: translate3d(0px, 126.5px, 0px) !important;
+            }
+            .parallax-description {
+                transform: translate3d(0px, 129.5px, 0px) !important;
+            }
+            .parallax-btn {
+                transform: translate3d(0px, 157.5px, 0px) !important;
+            }
+        }
+    }
+}
+
+.rd-parallax-inner {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    color: $white;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+    clip: rect(0, auto, auto, 0);
+}
+.rd-parallax-layer[data-type="media"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%; }
+.rd-parallax-layer[data-type="media"] iframe {
+    width: 100%;
+    height: 100%; }
+.rd-parallax-layer[data-url] {
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center; }
+.rd-parallax-swiper {
+    z-index: 1 !important; }
+.static-video{
+    height: 100%;
+}
+.rd-parallax-inner .static-video-layer {
+    position: absolute !important;
+}
+.parallax-container{
+    position: relative;
+}

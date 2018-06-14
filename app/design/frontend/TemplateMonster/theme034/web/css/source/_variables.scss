@@ -1,0 +1,113 @@
+//
+// Grid system
+// --------------------------------------------------
+
+$column-count: 12;
+$column-width: 80px;
+$gutter-width: 40px;
+
+$row-ws: 0;
+
+$container-xs: 300px;
+$container-xs-custom: 300px + 150;
+$container-sm: 720px + $gutter-width + 160;
+$container-md: 940px + $gutter-width + 140;
+$container-lg: 1150px + $gutter-width;
+$container-xl: ($column-count*$column-width + $gutter-width*($column-count)) + 324;
+
+// Layouts
+$layout-boxed-width: 1920px;
+
+// Resolutions
+$screen-xs-min: 480px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+$screen-xl-min: 1400px;
+
+$screen-mob-min: $screen-md-min; // break-point for mobile styles
+
+// Fonts
+$default-font-family: 'PT Sans', sans-serif;
+$secondary-font-family: 'Stalinist One', sans-serif;
+$default-font-weight: 400;
+$default-font-size: 16px;
+$default-line-height: 1.2;
+
+// Icons
+$default-icon-family: 'Material Icons';
+$fa: 'FontAwesome';
+
+// Colors
+$white: #fff;
+$black: #000;
+$c-error: #d73105;
+$default: #011327;
+$gray: #f0f1f2;
+
+$bg-light: #f0f0f0;
+$bg-dark: #f2f2f2;
+
+$primary: #ff3d00;
+$accent: #8aa4c1;
+$secondary-1: #022347;
+$secondary-2: #112438;
+$secondary-3: #627890;
+$secondary-4: #b6c5d7;
+$text-dark: #000d1b;
+$text-light: #333333;
+$unactive: #999999;
+
+$border-color: #dfe4eb;
+
+$modal-popup__box-shadow: (transparentize($black, .8));
+
+
+// Mobile view variables
+
+$rd-navbar-default-color: $default;
+$rd-navbar-contrast-color: $white;
+$rd-navbar-accent-color: #434343;
+$rd-navbar-accent-color-2: #323232;
+$rd-navbar-hover-color: $primary;
+$rd-navbar-panel-height: 56px;
+
+
+$rd-navbar-shadow: 0 3px 5px 0 rgba(0, 0, 0, .25);
+
+%rd-navbar-transition {
+    transition: .3s all cubic-bezier(0.785, 0.135, 0.150, 0.860);
+}
+
+%rd-navbar-hidden {
+    display: none;
+}
+
+%rd-navbar-visible {
+    display: block;
+}
+
+
+//Indents
+$indent-base: 2rem;
+$indent-large:  $indent-base * 2;
+$indent-small:  $indent-base / 2;
+
+//Links
+$link-regular:  $primary;
+$link-hover:    $default;
+$link-active:   $text-dark;
+$link-alt:      $default;
+
+//Transition
+$default-transition: .3s ease;
+
+//
+//  Form Variables
+//  ---------------------------------------------
+
+//Inputs
+$input-font-size:       14px;
+$input-line-height:     1.5em;
+$input-bg-color:        $gray;
+

@@ -1,0 +1,60 @@
+//
+//  Related product
+//  ---------------------------------------------
+
+.block.related{
+    @include order(5);
+    @include make-col();
+    @include flex-basis(100%);
+    overflow: hidden;
+
+    .block-actions button.action.select {
+        margin-left: 15px;
+        color: $primary;
+
+        &:hover {
+            color: $white;
+        }
+    }
+}
+
+.products-grid.products-related{
+    margin: 2rem 0 0;
+    padding: 0;
+
+    .product-items{
+        margin: 0 -15px;
+        padding: 0;
+    }
+    .product-item{
+        @include flex-basis(100%);
+        padding: 0;
+        margin-top: 0;
+        border: none;
+    }
+
+    .product-item {
+        .price-box {
+            margin-bottom: .5em;
+        }
+
+        .field.choice > input[type="checkbox"] + .label::before {
+            line-height: 20px;
+        }
+
+        .choice label {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .product-item-actions > .actions-secondary {
+        margin-top: 5px;
+        text-align: left;
+    }
+
+    .owl-item{
+         padding: 0 15px;
+    }
+}

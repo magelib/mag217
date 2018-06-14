@@ -1,0 +1,64 @@
+//
+//  Compare products block in sidebar
+//  ---------------------------------------------
+
+
+.sidebar .block-compare{
+    .compare-counter{
+        margin-bottom: 16px;
+
+        .counter{
+            color: $accent;
+        }
+    }
+
+    .product-items{
+        margin-bottom: 12px;
+    }
+    .product-item-name{
+        display: block;
+        padding-right: 20px;
+
+        a{
+            color: $text-dark;
+            &:hover{
+                color: $primary;
+            }
+        }
+    }
+    .product-item{
+        position: relative;
+        margin-bottom: 12px;
+    }
+    .action.delete{
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 18px;
+        line-height: 1;
+        color: $accent;
+
+        &:hover {
+            color: $primary;
+        }
+
+        &:before {
+            content: '\e14c';
+        }
+    }
+
+    .actions-toolbar{
+        @include make-flex;
+        @include flex-direction(column-reverse);
+        @include align-items(stretch);
+
+        a.compare{
+            @include button-block;
+            width: 100%;
+            text-align: center;
+        }
+        .secondary{
+            margin-bottom: 16px;
+        }
+    }
+}

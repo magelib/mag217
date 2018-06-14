@@ -1,0 +1,449 @@
+
+/*
+* TM_Megamenu
+*/
+
+@import '_vars.scss';
+@import '_topNav.scss';
+@import '_sidebarNav.scss';
+
+// Main Styles
+
+.navigation{
+    position: relative;
+    margin-top: 1px;
+
+    @media (min-width: $screen-sm-min) {
+        .row{
+            margin-bottom: 20px;
+        }
+
+        ul.vm-static,
+        ul.vm-easing {
+            margin-left: 10px;
+        }
+        ul.vm-pop-up {
+            position: absolute;
+            z-index: 9;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 1px 1px 5px #cccccc;
+        }
+    }
+
+    @media (max-width: $screen-md-min - 1) {
+
+        li.level-top .megamenu-wrapper,
+        a.level-top .megamenu-wrapper {
+            padding: 0;
+            background: none;
+        }
+
+        [class*="col-"]{
+            padding: 0;
+        }
+    }
+}
+
+
+.rd-navbar-static .navigation .container{
+    position: relative;
+
+    .row{
+        @media (min-width: $screen-lg-min) {
+            margin-bottom: 15px;
+        }
+    }
+
+    .container{
+        position: relative;
+    }
+
+    @media (min-width: $screen-lg-min) {
+        .row{
+            margin-left: -20px;
+            margin-right: -20px;
+            margin-bottom: 40px;
+        }
+        [class*='col-']{
+            padding-left: 20px;
+            padding-right: 20px;
+            position: relative;
+        }
+    }
+
+
+    li.level-top,
+    a.level-top{
+        .megamenu-wrapper {
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 15px 0 0;
+            margin-top: 39px;
+            background-color: $secondary-2;
+            background-image: url(../images/mega-menu-bg.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            box-shadow: none;
+
+            @media (min-width: $screen-sm-min) {
+                width: 728px;
+                left: 0;
+            }
+            @media (min-width: $screen-md-min) {
+                margin-left: -25%;
+
+                .level1 > .item > a {
+                    padding-left: 16px;
+                    font-size: 32px;
+                    line-height: 1.2;
+                    letter-spacing: .04em;
+                    color: $white;
+
+                    &:before,
+                    &:after {
+                        display: none;
+                    }
+                    
+                    &:hover,
+                    &:focus {
+                        color: $primary;
+                    }
+                }
+
+                .mm-submenu > .ui-menu-item > a + .mm-submenu.level2 {
+                    margin-top: 13px;
+                }
+            }
+            @media (min-width: $screen-lg-min) {
+                margin-left: -21px;
+                padding: 25px 4px 0;
+            }
+        }
+        .mm-label{
+            background-color: $primary;
+            top: 8px;
+            bottom: 6px;
+            left: 100%;
+            margin-left: 3px;
+            font-size: 10px;
+            line-height: 1;
+            padding: 1px 3px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+
+            &.new{
+                background-color: #0ec2fd;
+            }
+            &.hot{
+                color: $primary;
+                background-color: #fffc13;
+            }
+        }
+        .mm-product-title{
+            display: block;
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 1;
+            color: $primary;
+            padding: 6px 0;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.rd-navbar-static{
+    .navigation {
+        margin-left: 59px;
+    }
+
+    // Megamenu off styles
+    .rd-navbar-nav > li.parent {
+        &:not(.rd-navbar-submenu) > a:after{
+            @include font-icon__pseudo('\e313');
+            padding-top: 2px;
+        }
+
+        > ul.level0:not(.rd-navbar-dropdown){
+            position: absolute;
+            z-index: 80;
+            padding: 8px 0;
+            min-width: 120px;
+            color: $default;
+            background: $bg-light;
+            text-align: left;
+            opacity: 0;
+            visibility: hidden;
+            transition: $default-transition;
+            @include transform(translateY(30px));
+        }
+
+        &:hover{
+            > ul.level0:not(.rd-navbar-dropdown){
+                opacity: 1;
+                visibility: visible;
+                @include transform(translateY(0));
+            }
+        }
+
+        > ul.level0:not(.rd-navbar-dropdown){
+            .submenu{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 100%;
+            }
+
+            .parent > a{
+                @include font-icon('\e315');
+                position: relative;
+                &:before{
+                    position: absolute;
+                    right: 3px;
+                    top: 50%;
+                    margin-top: -10px;
+                }
+            }
+
+            .parent:hover{
+                > .submenu{
+                    display: block;
+                    background: $bg-light;
+                    min-width: 200px;
+                }
+            }
+        }
+
+        li > a{
+            position: relative;
+            display: inline-block;
+            font-size: 12px;
+            line-height: 24px;
+            padding: 6px 16px 6px 34px;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            color: $accent;
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                top: 14px;
+                left: 21px;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                transition: .3s all ease;
+            }
+
+            &:before {
+                background: $accent;
+            }
+
+            &:after {
+                opacity: 0;
+                background: $primary;
+            }
+        }
+
+        li.focus > a, li.opened > a, a:hover{
+            color: $white;
+
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+
+
+    .rd-navbar-subpanel{
+        display: table;
+    }
+
+    .rd-navbar-outer .rd-navbar-inner{
+        position: relative;
+    }
+
+    .rd-navbar-dropdown,
+    .rd-navbar-megamenu{
+        position: absolute;
+        padding: 20px 0;
+        z-index: 99;
+        color: $white;
+        background: $secondary-2;
+        text-align: left;
+        opacity: 0;
+        visibility: hidden;
+        transition: $default-transition;
+        @include transform(translateY(30px));
+    }
+
+    .rd-navbar-nav > li.parent .rd-navbar-dropdown{
+        width: 270px;
+
+        > li > a {
+            padding: 5px 16px 5px 40px;
+        }
+    }
+
+    .rd-navbar-megamenu{
+        margin-top: 10px;
+        left: 0;
+        right: 0;
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        padding: 16px 8px;
+
+        > li{
+            display: table-cell;
+        }
+
+        &.megamenu-wrapper {
+            li.ui-menu-item > a:before, li.ui-menu-item > a:after {
+                top: 15px;
+                left: 15px;
+            }
+        }
+    }
+
+    .rd-navbar-nav{
+        display: block;
+        text-align: left;
+
+
+        li {
+            &.rd-navbar--has-dropdown > a,
+            &.rd-navbar--has-megamenu > a{
+                @include font-icon('\e313');
+                &:before {
+                    position: absolute;
+                    right: 7px;
+                    top: 50%;
+                    margin-top: -10px;
+                    font-weight: 400;
+                    font-size: 14px;
+                }
+
+                &.level-top:before{
+                    right: -15px;
+                    margin-top: -13px;
+                }
+            }
+
+            &.rd-navbar--has-dropdown{
+                position: relative;
+            }
+
+            &.rd-navbar--has-megamenu > a{
+                position: relative;
+            }
+
+            &.focus,
+            &.opened{
+                > .rd-navbar-dropdown, > .rd-navbar-megamenu{
+                    opacity: 1;
+                    visibility: visible;
+                    @include transform(translateY(0));
+                }
+            }
+        }
+
+        > li{
+            display: inline-block;
+
+            &+ li {
+                margin-left: 55px;
+            }
+
+            > .rd-navbar-dropdown, > .rd-navbar-megamenu{
+                top: 100%;
+                z-index: 99;
+            }
+
+            > .rd-navbar-dropdown{
+                left: 0;
+                margin-top: 39px;
+
+                .rd-navbar-dropdown{
+                    left: 100%;
+                    top: -8px;
+                    z-index: 2;
+                }
+            }
+
+            > a{
+                position: relative;
+                display: block;
+                font-weight: 700;
+                line-height: 26px;
+                letter-spacing: .06em;
+                text-transform: uppercase;
+                color: $accent;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -5px;
+                    width: 0;
+                    height: 3px;
+                    background: $primary;
+                    transition: .3s all ease;
+                    transition-duration: .6s;
+                }
+            }
+
+            &.active > a, &.opened > a,
+            &.focus > a, > a:hover {
+                color: $white;
+
+                &:after {
+                    opacity: 1;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &.rd-navbar--is-stuck {
+        .navigation .container{
+            li.level-top,
+            a.level-top{
+                .megamenu-wrapper {
+                    margin-top: 12px;
+                }
+            }
+        }
+
+        .rd-navbar-nav > li > .rd-navbar-dropdown {
+            margin-top: 12px;
+        }
+    }
+}
+
+.sidebar .navigation li.level0 {
+    a.level-top {
+        padding: 10px;
+    }
+}
+
+@media (max-width: $screen-sm-min - 1) {
+
+    .navigation li.level-top,
+    .navigation a.level-top{
+        position: relative;
+    }
+
+    .rd-navbar-fixed .rd-navbar-submenu {
+        .megamenu-wrapper.rd-navbar-megamenu ul li li > a {
+            padding-left: 47px;
+            padding-right: 0;
+        }
+    }
+}

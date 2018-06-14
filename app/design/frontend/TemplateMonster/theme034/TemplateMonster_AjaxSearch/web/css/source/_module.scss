@@ -1,0 +1,139 @@
+/*
+*   TM_AjaxCatalog
+*/
+
+// Local vars
+
+$dropdown-bg:      $secondary-2;
+$dropdown-indent:  10px;
+$border:           1px $accent;
+$shadow-ambient:   0 0 2px 0 rgba(0, 0, 0, .25);
+$shadow-hover:     0 0 15px 0 transparentize($primary, .85);
+$dropdown-indent:  10px;
+$screen-res:       1024px;
+
+$product-name-size:   14px;
+$product-price-size:  16px;
+$product-price-color: $primary;
+
+
+// Main Styles
+
+#search_mini_form{
+    position: relative;
+
+    #search{
+        padding-left: 20px;
+
+        @media (min-width: $screen-md-min) {
+            padding-left: 58px;
+        }
+    }
+}
+
+body.ajax-loading #search.input-text:focus{
+    // if input has dark background, set "loader-white.gif" for "background-image" property.
+    background-image: url(../images/loader-white.gif);
+    background-position:  5px 50%;
+    background-repeat:  no-repeat;
+    background-size: 15px 15px;
+}
+
+#search_mini_form{
+    input[aria-haspopup="false"] + #search_autocomplete ul[role=listbox]{
+        overflow: hidden;
+    }
+
+    .search-autocomplete {
+        overflow: hidden;
+        position: static;
+        max-height: 350px;
+        z-index: 99;
+        text-align: left;
+        background: $dropdown-bg;
+        box-shadow: $shadow-ambient;
+        &:after{
+            content: '';
+            position: absolute;
+            top: 320px;
+            left: 0;
+            z-index: 9999;
+            width: 120%;
+            height: 30px;
+        }
+
+        ul[role=listbox] {
+            overflow-y: scroll;
+            position: static;
+            max-height: 350px;
+            margin-right: -20px;
+            z-index: 10;
+            display: block;            
+        }
+
+        ul li.search-item{
+            border-top: none;
+            padding: $dropdown-indent;
+            padding-right: $dropdown-indent + 20px;
+            transition: .3s all ease;
+
+            > .qs-option-name{
+                font-size: $product-name-size;
+                display: block;
+                margin-bottom: 5px;
+                color: $accent;
+                letter-spacing: .02em;
+                text-transform: uppercase;
+            }
+
+            &+ li.search-item {
+                border-top: solid $border;
+            }
+
+            .amount{
+                position: static;
+                font-size: $product-name-size;
+                display: block;
+                margin-bottom: 5px;
+                color: $accent;
+                letter-spacing: .02em;
+                text-transform: uppercase;
+            }
+
+            a{
+                display: block;
+                overflow: hidden;
+                line-height: normal;
+                text-decoration: none;
+                margin: -$dropdown-indent;
+                padding: $dropdown-indent;
+
+                .search-thumb{
+                    float: left;
+                    width: 50px;
+                    margin-right: 10px;
+                }
+
+                .qs-option-name{
+                    font-size: $product-name-size;
+                    display: block;
+                    margin-bottom: 5px;
+                    color: $accent;
+                    letter-spacing: .02em;
+                    text-transform: uppercase;
+                }
+
+                .price{
+                    display: block;
+                    color: $product-price-color;
+                    font-size: $product-price-size;
+                    font-weight: 700;
+                }
+            }
+
+            &:hover{
+                background: $default;
+            }
+        }
+    }
+}

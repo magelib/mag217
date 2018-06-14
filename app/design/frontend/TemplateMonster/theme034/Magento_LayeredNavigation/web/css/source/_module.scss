@@ -1,0 +1,243 @@
+//
+//  Filters
+//  __________________________________________________
+
+.sidebar .filter-wrapper .filter-subtitle{
+    font-size: 18px;
+    color: $primary;
+    margin-bottom: 16px;
+    display: none;
+}
+
+//Current filters
+.filter-current--wrapper{
+    background: $white;
+    border: 1px solid $border-color;
+    border-bottom: none;
+    padding: 24px 30px;
+    
+    @media (min-width: $screen-lg-min) and (max-width: $screen-xl-min - 1) {
+        padding: 20px 10px;
+    }
+
+    [role="tablist"] .filter-current-subtitle[role="tab"]{
+        color: $text-dark;
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 700;
+        margin-bottom: 0;
+        transition: .3s all ease;
+
+        &:before {
+            top: 1px;
+        }
+
+        &[aria-expanded="true"] {
+            &:before {
+                content: '\e313';
+            }
+        }
+
+        &[aria-expanded="false"] {
+            &:before {
+                content: '\e316';
+            }
+        }
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    .filter-current.active .items {
+        display: none;
+    }
+
+    .filter-current{
+        .items{
+            padding: 8px 0;
+        }
+        .item{
+            padding: 4px 0;
+            @include make-flex;
+            @include justify-content(space-between);
+            @include align-items(center);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .02em;
+            color: $accent;
+        }
+        .filter-label:after{
+            content: ':';
+        }
+        .filter-value{
+            padding-left: 4px;
+        }
+        .remove{
+            @include font-icon('\e14c');
+            margin-left: auto;
+            color: $accent;
+
+            &:before {
+                font-size: 21px;
+            }
+
+            &:hover {
+                color: $primary;
+            }
+
+            span{
+                display: none;
+            }
+        }
+    }
+    .action.clear {
+        display: inline-block;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .02em;
+        margin-top: .4rem;
+        transition: .3s color ease;
+    }
+}
+
+
+//Filter options
+
+.filter-options[role="tablist"]{
+
+    .filter-options-title[role="tab"]{
+        @include font-icon('\e316');
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 700;
+        margin-bottom: 0;
+        background: $gray;
+        position: relative;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        width: 100%;
+        padding: 6px 30px;
+        border: 1px solid $border-color;
+
+        @media (min-width: $screen-md-min) and (max-width: $screen-xl-min - 1) {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+        &:before{
+            position: absolute;
+            top: 3px;
+            right: 18px;
+            width: 26px;
+            height: 26px;
+            border-radius: 2px;
+            text-align: center;
+            font-size: 24px;
+            line-height: 1;
+            padding: 6px 0;
+            color: $accent;
+        }
+
+        &[aria-expanded="false"]:before{
+            content: '\e313';
+        }
+    }
+
+    .filter-options-item {
+        &:not(:last-child) .filter-options-title[role="tab"]{
+            border-bottom: none;
+        }
+
+        &:last-child {
+            .filter-options-content{
+                border-bottom: 1px solid $border-color;
+            }
+        }
+
+        &.active {
+            .filter-options-title[role="tab"]{
+                border-bottom: 1px solid $border-color;
+            }
+        }
+    }
+
+    .filter-options-content{
+        padding: 22px 30px;
+        margin-bottom: 0;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .02em;
+        border-left: 1px solid $border-color;
+        border-right: 1px solid $border-color;
+
+        .item{
+            @include make-flex;
+            @include justify-content(space-between);
+            @include align-items(center);
+            @include flex-wrap(wrap);
+            padding: 4px 0;
+
+            a{
+                color: $accent;
+                transition: .3s color ease;
+                &:hover{
+                    color: $primary;
+                }
+            }
+        }
+
+        .item + .item {
+            margin-top: 14px;
+        }
+
+        .count{
+            color: $default;
+            padding-left: 4px;
+            &:hover{
+                color: $primary;
+            }
+        }
+
+        @media (min-width: $screen-md-min) and (max-width: $screen-xl-min - 1) {
+            padding: 12px 10px;
+
+            .item + .item {
+                margin-top: 4px;
+            }
+        }
+    }
+}
+
+.filter-toggle{
+    @include order(0);
+    @include font-icon('\e5d2');
+    @include flex-basis(66px);
+    @include justify-content(flex-start);
+    text-align: left;
+    font-size: 2rem;
+    line-height: 1;
+    padding-right: 10px;
+    margin-right: 16px;
+
+    &:before{
+        vertical-align: bottom;
+    }
+
+    @media (min-width: $screen-sm-min){
+        display: none;
+    }
+
+    span{
+        display: none;
+    }
+}
+
+button.action.filter-toggle{
+    padding: 4px 11px;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    max-width: 55px;
+}

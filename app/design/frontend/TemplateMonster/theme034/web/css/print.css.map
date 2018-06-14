@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,KAGC;EAFG,IAAI,EAAE,YAAY;EAClB,MAAM,EAAE,CAAC;AAEb,YAAa;EACT,UAAW;IACP,KAAK,EAAE,KAAK;IACZ,MAAM,EAAE,KAAK;IACb,MAAM,EAAE,MAAM;;EAElB;;;;;;cAMY;IACR,OAAO,EAAE,IAAI",
+"sources": ["source/print.scss"],
+"names": [],
+"file": "print.css"
+}

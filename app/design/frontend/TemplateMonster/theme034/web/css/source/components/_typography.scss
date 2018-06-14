@@ -1,0 +1,121 @@
+/*
+* @subsection   Typography
+*/
+
+h1, .heading-1 {
+    font-size: 1.9rem;
+    letter-spacing: .04em;
+
+    @media (min-width: $screen-md-min) {
+        font-size: 2rem;
+    }
+}
+
+h2, .heading-2 {
+    font-size: 1.4rem;
+
+    @media (min-width: $screen-md-min) {
+        font-size: 1.65rem;
+    }
+}
+
+h3, .heading-3 {
+    font-size: 1.1rem;
+
+    @media (min-width: $screen-md-min) {
+        font-size: 1.45rem;
+    }
+}
+
+h4, .heading-4 {
+    font-size: 1rem;
+    font-weight: 600;
+
+    @media (min-width: $screen-md-min) {
+        font-size: 1.2rem;
+    }
+}
+
+h5, .heading-5 {
+    font-size: 1rem;
+
+    @media (min-width: $screen-md-min) {
+        font-size: 1.1rem;
+    }
+}
+
+h6, .heading-6 {
+    font-size: 1rem;
+}
+
+@for $i from 1 through 6 {
+    h#{$i},
+    .heading-#{$i} {
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 0.5em;
+        text-transform: uppercase;
+        letter-spacing: .02em;
+        color: $default;
+    }
+}
+
+.page-title,
+.section-title{
+    text-align: center;
+}
+.text-center{
+    text-align: center;
+}
+
+a {
+    color: $link-regular;
+    transition: .2s ease;
+    &:hover {
+        color: $link-hover;
+        transition: $default-transition;
+    }
+}
+
+p {
+    margin-bottom: $indent-small;
+}
+
+p,
+.list,
+.contact-info {
+    a {
+        color: $primary;
+        &:hover {
+            color: $link-hover;
+        }
+    }
+}
+
+mark {
+    color: $white;
+    background: $primary;
+}
+
+em {
+    color: $primary;
+}
+
+small {
+    font-size: .8em;
+}
+
+pre{
+    white-space: normal;
+}
+
+dl{
+    dt{
+        font-weight: 700;
+    }
+    dd{
+        font-style: italic;
+        padding-left: $indent-base;
+    }
+}
+

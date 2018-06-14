@@ -1,0 +1,59 @@
+
+//
+//  Bundle product view
+//  _____________________________________________
+
+
+
+//
+//  Options
+//  ---------------------------------------------
+
+.bundle-options-container{
+    @include flex-basis(100%);
+    @include order(3);
+    @include make-col();
+
+    .product-add-form{
+        display: none;
+    }
+
+    #product_addtocart_form{
+        @include make-flex;
+    }
+}
+.bundle-options-wrapper{
+    @include flex-basis(60%);
+
+    .legend{
+        @extend .heading-2;
+    }
+}
+
+.block-bundle-summary{
+    @include flex-basis(40%);
+}
+
+.fieldset-bundle-options__wrapper{
+    .field.option{
+        >.label{
+            font-weight: 600;
+        }
+        .price{
+            font-size: inherit;
+        }
+    }
+    .qty-holder{
+        @include make-flex();
+    }
+}
+
+//
+//  Summary
+//  ---------------------------------------------
+
+.block-bundle-summary{
+    >.title{
+        @extend .heading-2;
+    }
+}

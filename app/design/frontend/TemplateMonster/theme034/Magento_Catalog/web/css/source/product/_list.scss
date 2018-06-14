@@ -1,0 +1,249 @@
+
+//
+//  Generic Grid/List Item
+//  ---------------------------------------------
+
+.products-grid,
+.products-list{
+    .product-item{
+        // Image
+        .product-image-container {
+            display: inline-block;
+            max-width: 100%;
+        }
+        .product-item-photo{
+            display: block;
+        }
+        .product-image-wrapper {
+            display: block;
+            height: 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        .product-image-photo {
+            bottom: 0;
+            display: block;
+            height: auto;
+            left: 0;
+            margin: auto;
+            max-width: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        // Price
+
+        .price-box{
+            @include price-box; // _mixins.scss
+            margin-bottom: .8em;
+            @include make-flex;
+            @include flex-direction(column-reverse);
+
+            .price-wrapper .price {
+                font-size: 1.5rem;
+                color: $primary;
+            }
+
+            .old-price, .price-wrapper {
+                line-height: .7;
+            }
+
+            .old-price .price-wrapper {
+                .price {
+                    font-size: .75rem;
+                    color: $default;
+                }
+            }
+
+            .price-as-configured{
+                margin-bottom: 0;
+
+                .price-container{
+                    margin-bottom: 1em;
+                }
+            }
+        }
+
+        * + .price-box{
+            margin-top: 18px;
+        }
+
+        //Name
+        .product-item-details .product-item-name{
+            display: block;
+            font-size: .9rem;
+            margin-bottom: 1px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+
+            a{
+                color: $default;
+                &:hover{
+                    color: $primary;
+                }
+            }
+        }
+
+        //Details
+        .product-item-description{
+            font-size: 12px;
+            margin-bottom: 1em;
+            color: $accent;
+            text-transform: uppercase;
+
+            .action {
+                color: $primary;
+
+                &:hover,
+                &:focus {
+                    color: $default;
+                }
+            }
+
+            p{
+                margin-bottom: 0;
+            }
+        }
+
+        //Reviews
+        .product-reviews-summary{
+            @include make-flex;
+            margin-bottom: 7px;
+        }
+        .rating-summary{
+            .label{
+                display: none;
+            }
+        }
+        .reviews-actions{
+            .view{
+                margin-right: 12px;
+            }
+        }
+
+        //Actions
+        .product-item-actions{
+            margin-top: 0;
+        }
+    }
+}
+
+.products-grid{
+    .product-item{
+        text-align: center;
+    }
+
+    .product-reviews-summary{
+        @include justify-content(flex-start);
+        .reviews-actions{
+            display: none;
+        }
+    }
+}
+
+.products.products-list {
+    .product-item-info {
+        margin-bottom: 0;
+    }
+
+    .product-item {
+        border: 1px solid $border-color;
+    }
+
+    .product-item + .product-item {
+        border-top: none;
+    }
+
+    .product-item {
+        .product-item-photo {
+            text-align: center;
+
+            @media (max-width: $screen-xs-min - 1) {
+                width: 80%;
+                margin: 0 auto;
+            }
+            @media (min-width: $screen-xs-min) {
+                border-right: 1px solid $border-color;
+            }
+        }
+
+        .product-item-details {
+            padding: 40px 30px 30px;
+
+
+            .product-item-name {
+                font-size: 16px;
+                font-weight: 700;
+            }
+        }
+
+        .price-box {
+            margin-bottom: .4em;
+        }
+    }
+
+    .product-reviews-summary + .product-item-inner {
+        margin-top: 16px;
+    }
+
+    button.action.primary {
+        padding: 9px 18px 12px;
+        background: $default;
+
+        &:before {
+            color: $primary;
+            transition: .3s color ease;
+        }
+
+        &:hover {
+            background: $primary;
+
+            &:before {
+                color: $white;
+            }
+        }
+    }
+
+    .product-item-actions .actions-primary {
+        margin-bottom: 1.2rem;
+    }
+
+    .product-item-actions .actions-secondary {
+        a {
+            padding: 10px;
+            color: $accent;
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:hover {
+                color: $default;
+            }
+        }
+    }
+
+    .product-reviews-summary {
+        margin-bottom: 12px;
+        @include align-items(center);
+
+        .action.view {
+            margin-left: 5px;
+            margin-top: 5px;
+            display: inline-block;
+            color: $accent;
+
+            span {
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: .02em;
+            }
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}

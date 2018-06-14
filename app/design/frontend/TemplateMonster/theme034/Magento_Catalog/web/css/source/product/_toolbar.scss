@@ -1,0 +1,283 @@
+
+//
+//  Toolbar
+//  ---------------------------------------------
+
+.toolbar-products {
+    @include make-flex();
+    @include justify-content(space-between);
+    @include flex-wrap(wrap);
+    margin-bottom: $indent-base;
+
+    p,
+    .field{
+        @include make-flex();
+
+        .label{
+            font-weight: 700;
+            font-size: 13px;
+            margin-right: 22px;
+        }
+    }
+
+    label.label{
+        @media(min-width: $screen-sm-min){
+            @media(max-width: $screen-md-min - 1){
+                display: none;
+            }
+        }
+    }
+}
+
+.toolbar-container{
+    .filter-toggle{
+        @include button-block(); //@mixin source/_mixins.scss
+        margin-bottom: 20px;
+        display: none;
+    }
+}
+
+//Sorter
+.field.toolbar-sorter{
+    @include order(3);
+    @include flex-basis(100%);
+    @include justify-content(flex-start);
+    @include align-items(center);
+    margin-bottom: 15px;
+
+    @media (min-width: $screen-xs-min){
+        @include flex-basis(50%);
+        margin-bottom: 0;
+    }
+    @media (min-width: $screen-sm-min){
+        @include order(1);
+        @include flex-basis(auto);
+        margin-right: auto;
+    }
+
+    .label{
+        font-weight: 700;
+        font-size: 13px;
+        text-align: left;
+    }
+    .sorter-action{
+        color: $accent;
+        margin-left: $indent-small;
+
+        &:hover {
+            color: $primary;
+        }
+
+        span{
+            display: none;
+        }
+        &.sort-asc,
+        &.sort-desc{
+            @include font-icon('\e164');
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        &.sort-desc{
+            transform: rotate(180deg);
+        }
+    }
+}
+
+//Amount
+p.toolbar-amount{
+    @include order(1);
+    @include align-items(center);
+    @include make-flex();
+    @include flex-basis(50%);
+    @include justify-content(center);
+    margin-bottom: 0;
+    font-size: 13px;
+    color: $accent;
+
+    span.toolbar-number{
+        &:first-child{
+            margin-left: .3em;
+        }
+        &:nth-child(2){
+            margin-right: .3em;
+        }
+        &:last-child{
+            margin-left: .3em;
+        }
+    }
+
+    @media (min-width: $screen-sm-min){
+        @include order(2);
+        @include flex-basis(auto);
+    }
+    @media (max-width: $screen-xs-min - 1) {
+        max-width: 45%;
+    }
+}
+
+//Limiter
+.field.limiter{
+    @include order(4);
+    @include flex-basis(100%);
+    @include justify-content(flex-start);
+    @include align-items(center);
+    margin-bottom: 0;
+
+    .label {
+        margin-right: 10px;
+    }
+
+    @media (min-width: $screen-xs-min){
+        @include flex-basis(50%);
+        @include justify-content(flex-end);
+    }
+    @media (min-width: $screen-sm-min){
+        @include order(3);
+        @include flex-basis(auto);
+        @include justify-content(flex-start);
+        margin-left: 40px;
+    }
+
+    .limiter-text{
+        display: none;
+    }
+}
+
+.tollbar-bottom{
+    .modes,
+    .toolbar-amount,
+    .limiter,
+    .toolbar-sorter{
+        display: none;
+    }
+}
+
+// Modes
+.modes{
+    @include order(2);
+    @include make-flex;
+    @include justify-content(flex-end);
+    @include align-items(center);
+    @include flex-basis(25%);
+    margin-bottom: 0;
+
+    @media (min-width: $screen-sm-min){
+        @include order(4);
+        @include flex-basis(auto);
+        margin-left: 11px;
+        @include justify-content(space-between);
+    }
+
+    .modes-label{
+        display: none;
+    }
+    .modes-mode{
+        margin-left: .9em;
+        color: $accent;
+        span{
+            display: none;
+        }
+        &.active{
+            color: $link-alt;
+            &:hover{
+                color: inherit;
+            }
+        }
+        &:hover{
+            color: $primary;
+        }
+    }
+    .mode-grid{
+        @include font-icon('\e8f0');
+        font-size: 1.13rem;
+        line-height: 1;
+    }
+    .mode-list{
+        @include font-icon('\e8ef');
+        font-size: 1.13rem;
+        line-height: 1;
+    }
+}
+
+//Pages
+.pages{
+    @include order(9);
+    @include flex-basis(100%);
+    display: none;
+    margin-bottom: 0;
+
+    .pages-items{
+        position: relative;
+        display: inline-block;
+        @include clearfix;
+    }
+    .item{
+        float: left;
+        font-size: 1rem;
+        line-height: 1;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+
+        a {
+            color: $accent;
+        }
+
+        &.current{
+            color: $default;
+        }
+
+        &.pages-item-previous,
+        &.pages-item-next{
+            a {
+                color: $primary;
+
+                span:not(.label){
+                    display: inline-block;
+                    margin-top: 1px;
+                    @include font-icon();
+                }
+            }
+        }
+        &.pages-item-previous{
+            a span:not(.label) {
+                margin-right: -6px;
+
+                &:before{
+                    content: '\e5cb';
+                }
+            }
+        }
+        &.pages-item-next{
+            a span:not(.label) {
+                margin-left: -6px;
+
+                &:before{
+                    content: '\e5cc';
+                }
+            }
+        }
+
+        a, &.pages-item-previous a,
+        &.pages-item-next a {
+            &:hover {
+                color: $default;
+            }
+        }
+
+        &+ .item {
+            margin-left: 14px;
+        }
+    }
+    .tollbar-bottom & {
+        display: block;
+    }
+}
+
+.tollbar-bottom {
+    margin-top: 30px;
+
+   .toolbar-products > .action.filter-toggle {
+        display: none!important;
+    }
+}

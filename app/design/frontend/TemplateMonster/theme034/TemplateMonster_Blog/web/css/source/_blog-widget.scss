@@ -1,0 +1,229 @@
+// Main styles
+
+.widget.blog-posts {
+    margin-top: 40px;
+    clear: both;
+    font-family: $font;
+    width: 100%;
+    @include make-container($gutter-width);
+    min-width: $container-xs;
+    max-width: $screen-xs-min;
+
+    .block-title {
+        display: none;
+    }
+
+    .post-items {
+        .post-item + .post-item {
+            margin-top: 45px;
+        }
+
+        // Image
+        .post-image {
+            margin-bottom: 21px;
+
+            a {
+                position: relative;
+                overflow: hidden;
+                display: inline-block;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -75%;
+                    z-index: 2;
+                    display: block;
+                    width: 50%;
+                    height: 100%;
+                    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+                    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+                    -webkit-transform: skewX(-25deg);
+                    transform: skewX(-25deg);
+                }
+
+                &:hover {
+                    &:before {
+                        -webkit-animation: shine .75s;
+                        animation: shine .75s;
+                    }
+                }
+            }
+
+            img {
+                width: 100%;
+                vertical-align: top;
+            }
+        }
+
+        // Title
+        .post-title {
+            margin-top: 8px;
+            margin-bottom: 6px;
+
+            h3 {
+                margin: 0;
+                font-family: $font;
+                font-size: $title-size;
+                line-height: 1.3;
+                font-weight: 700;
+                letter-spacing: .04em;
+                text-transform: uppercase;
+
+                @media (min-width: $screen-sm-min) {
+                    font-size: 20px;
+                }
+
+                @media (min-width: $screen-md-min) {
+                    font-size: 26px;
+                }
+                @media (min-width: $screen-lg-min) {
+                    font-size: 32px;
+                }
+
+                a {
+                    color: $title-color;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+
+        // Short Content
+        .post-short-content {
+            font-size: inherit;
+            line-height: 1.5;
+            margin-bottom: 16px;
+
+            @media (min-width: $screen-sm-min) {
+                margin-bottom: 26px;
+            }
+        }
+
+        // Post link
+        .post-link {
+            color: $link-color;
+            font-weight: 700;
+            text-transform: none;
+
+            &:hover {
+                color: lighten($color, 40%);
+            }
+        }
+
+        // Post Button
+        .post-btn {
+            @include button-block;
+            padding: 11px 20px;
+            @include button-block__primary;
+
+            @media (min-width: $screen-lg-min) {
+                padding: 11px 20px;
+            }
+        }
+
+        // Post data
+        .post-data {
+            margin-top: 28px;
+            color: $primary;
+            @include make-flex;
+            @include justify-content(flex-start);
+
+            .create-date,
+            .post-author,
+            .post-comments {
+                font-size: 12px;
+                letter-spacing: .06em;
+                text-transform: uppercase;
+
+                a {
+                    color: $post-data-color;
+                    text-decoration: none;
+                    &:hover {
+                        color: $color;
+                    }
+                }
+                a span:before,
+                &:before {
+                    display: none;
+                    font-size: 18px;
+                    padding-right: 4px;
+                    color: $color;
+                    vertical-align: middle;
+                }
+            }
+            .create-date {
+                margin-left: 8px;
+                @include order(2);
+
+                time {
+                    display: inline-block;
+
+                    &:before {
+                        content: '-';
+                        margin-right: 8px;
+                        color: $accent;
+                    }
+                }
+            }
+            .post-author {
+                @include order(1);
+
+                .label {
+                    color: $accent;
+                }
+            }
+            .post-comments {
+                display: none;
+                order: 3;
+                -webkit-order: 3;
+                flex-basis: 50px;
+                -webkit-flex-basis: 50px;
+                text-align: right;
+            }
+        }
+
+        @media (min-width: $screen-sm-min) {
+            @include make-flex;
+            @include flex-wrap(wrap);
+            padding: 0;
+            margin: 0 -15px;
+
+            .post-item {
+                @include flex-basis(33.333%);
+                list-style: none;
+                padding: 0 15px;
+                box-sizing: border-box;
+
+                .item-wrapper {
+                    padding-bottom: 43px;
+                }
+            }
+
+            .post-item + .post-item {
+                margin-top: 0;
+            }
+        }
+    }
+    @media (min-width: $screen-xs-min) {
+        min-width: $container-xs-custom;
+    }
+    @media (min-width: $screen-sm-min) {
+        max-width: $container-sm;
+    }
+    @media (min-width: $screen-md-min) {
+        max-width: $container-md;
+    }
+    @media (min-width: $screen-lg-min) {
+        position: relative;
+        z-index: 1;
+        max-width: $container-lg;
+        margin-top: -77px;
+    }
+    @media (min-width: $screen-xl-min) {
+        max-width: $container-xl;
+    }
+}

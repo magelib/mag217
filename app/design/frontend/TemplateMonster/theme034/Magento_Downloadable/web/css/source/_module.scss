@@ -1,0 +1,39 @@
+// Account table
+//-----------------------------------
+.custome-downloadable-products__wrapper{
+    .table-title{
+        @extend .heading-3;
+        display: block;
+        margin-bottom: 16px;
+    }
+
+    .pager{
+        @include make-flex;
+        @include justify-content(space-between);
+        @include align-items(center);
+        margin-bottom: 20px;
+
+        .toolbar-amount,
+        .limiter{
+            @include flex-basis(auto);
+        }
+
+        .field{
+            padding: 0;
+        }
+    }
+
+    .table-downloadable-products{
+        margin-bottom: 26px;
+        caption{
+            display: none;
+        }
+
+        .col.title a.download:before{
+            @include font-icon__pseudo('\e2c4');
+            padding: 0 4px 0 8px;
+        }
+    }
+
+
+}

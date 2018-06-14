@@ -1,0 +1,293 @@
+//
+// Variables
+//----------------------------------------------
+$search-padding-hor:     20px;
+$search-padding-vert:    6px;
+
+//
+//  Search mini form
+//  ---------------------------------------------
+
+.block-search{
+    .block-title,
+    .nested{
+        display: none;
+    }
+}
+
+//
+//  Desktop view Search
+//-----------------------------------------------
+@media (min-width: $screen-mob-min){
+    .block-search{
+        margin-left: auto;
+
+        #search_mini_form{
+            @include make-flex;
+
+            .search .label{
+                display: none;
+            }
+
+            .field{
+                padding: 0;
+            }
+
+            .control{
+                position: relative;
+                top: auto;
+                right: auto;
+                left: auto;
+
+                &:before {
+                    content: '\e8b6';
+                    position: absolute;
+                    top: 50%;
+                    left: 20px;
+                    font-size: 28px;
+                    line-height: 1;
+                    font-family: "Material Icons";
+                    color: $accent;
+                    @include transform(translateY(-50%));
+                    pointer-events: none;
+                }
+            }
+
+            input{
+                padding: $search-padding-vert $search-padding-hor;
+            }
+
+            button[type="submit"]{
+                color: $white;
+                background: $secondary-3;
+                padding: ($search-padding-vert + 5) $search-padding-hor;
+                margin-left: 10px;
+
+                &:hover {
+                    color: $white;
+                    background: $primary;
+                }
+            }
+        }
+    }
+}
+
+.rd-navbar-static{
+    .rd-navbar-search-toggle{
+        display: block;
+        position: relative;
+        font-family: $default-icon-family;
+        width: 50px;
+        height: 50px;
+        @include toggle-icons-via-rotation(50px, 40px, $primary, '\e8b6', '\e5cd');
+        z-index: 1;
+
+        span {
+            &:after {
+                font-size: 21px;
+            }
+        }
+
+        @media (min-width: $screen-sm-min) and (max-width: $screen-md-min - 1) {
+            &, span {
+                width: 40px;
+                height: 40px;
+            }
+
+            span {
+                font-size: 30px;
+                line-height: 30px;
+            }
+        }
+
+        &,
+        span{
+            transition: none;
+        }
+
+        &.active span,
+        &:hover span{
+            color: $primary;
+        }
+    }
+
+    .rd-navbar-search{
+        display: block;
+
+        .field{
+            margin-bottom: 0;
+            z-index: 0;
+        }
+
+        .form-group{
+            position: absolute;
+            z-index: 2;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 51px;
+            @extend %rd-navbar-transition;
+            visibility: hidden;
+            opacity: 0;
+            margin-right: 58px;
+            will-change: content;
+
+            .field.search {
+                width: 100%;
+            }
+
+            input#search{
+                width: 100%;
+                height: 51px;
+                font-size: 13px;
+                line-height: 18px;
+                display: block;
+                padding-right: 60px;
+                padding-left: 60px;
+                color: $accent;
+                background-color: $default;
+                border-color: #1c344e;
+                border-radius: 0;
+                transition: .3s all ease;
+
+                &:focus {
+                    border-color: $secondary-3;
+                }
+
+                &::-webkit-input-placeholder {
+                    color: $accent;
+                }
+                &::-moz-placeholder {
+                    color: $accent;
+                }
+                &:-ms-input-placeholder {
+                    color: $accent;
+                }
+                &:-moz-placeholder {
+                    color: $accent;
+                }
+            }
+        }
+
+        &.active{
+            .form-group{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        form{
+            button[type="submit"]{
+                @include font-icon('\e8b6');
+                position: absolute;
+                top: 50%;
+                right: 4px;
+                z-index: 99;
+                padding: 0;
+                text-transform: uppercase;
+                letter-spacing: .06em;
+                color: $primary;
+                background: $rd-navbar-contrast-color;
+                transition: .3s ease;
+                @include transform(translateY(-50%));
+                will-change: contetn;
+
+                &:before{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.rd-navbar-fixed{
+    .block-search.rd-navbar-search .form-group {
+        .actions .action {
+            &:hover {
+                color: $accent;
+            }
+        }
+    }
+}
+
+//
+//  Mobile view Search
+//-----------------------------------------------
+
+@media (max-width: $screen-mob-min - 1){
+    .block-search{
+        .search .label{
+            display: block;
+            position: fixed;
+            z-index: 18;
+            top: 0;
+            right: 104px;
+            font-family: $default-icon-family;
+            width: 56px;
+            height: 56px;
+            background: transparent;
+            transition: background $default-transition;
+            @include toggle-icons-via-rotation($rd-navbar-panel-height, 30px, $rd-navbar-contrast-color, '\e8b6', '\e5cd');
+
+            &.active{
+                background: $rd-navbar-default-color;
+            }
+        }
+
+        .control{
+            position: fixed;
+            z-index: 10;
+            top: -20px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            padding: 10px 5px;
+            background: $rd-navbar-default-color;
+            transition: top $default-transition;
+
+
+            input{
+                width: 100%;
+                height: 100%;
+                display: block;
+                background: $rd-navbar-contrast-color;
+                padding-right: 40px;
+            }
+        }
+
+        .search .label.active + .control{
+            opacity: 1;
+            top: $rd-navbar-panel-height;
+            z-index: 11;
+        }
+
+        form{
+            button[type="submit"]{
+                @include font-icon('\e8b6');
+                background: transparent;
+                line-height: 40px;
+                margin: 0;
+                padding: 0;
+                position: fixed;
+                z-index: 20;
+                right: 5px;
+                top: -20px;
+                width: 40px;
+                height: 40px;
+                opacity: 0;
+                &:before{
+                    font-size: 20px;
+                }
+                &.active{
+                    top: $rd-navbar-panel-height + 10px;
+                    opacity: 1;
+                }
+
+                span{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+

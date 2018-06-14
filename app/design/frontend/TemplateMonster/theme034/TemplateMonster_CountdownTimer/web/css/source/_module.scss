@@ -1,0 +1,40 @@
+
+.timer-wrapper{
+    border: none;
+    background: $primary;
+    color: $white;
+    font-weight: 700;
+    max-width: 300px;
+    padding: 8px 10px;
+    margin: 15px 0;
+    text-transform: uppercase;
+    @include make-flex;
+    @include justify-content(center);
+    @include align-items(center);
+
+    #timer5 {
+        @include make-flex;
+        @include align-items(center);
+        @include justify-content(space-between);
+
+        > div {
+            @include make-flex;
+            @include flex-direction(column);
+            @include align-items(center);
+            line-height: 1;
+            letter-spacing: .06em;
+
+            > span {
+                margin-top: 1px;
+                font-size: 12px;
+                line-height: 1;
+                font-weight: 400;
+                letter-spacing: .02em;
+            }
+        }
+
+        > div + div {
+            margin-left: 8px;
+        }
+    }
+}
