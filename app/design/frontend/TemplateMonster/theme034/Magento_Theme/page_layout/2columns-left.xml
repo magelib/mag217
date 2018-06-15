@@ -9,9 +9,13 @@
             <container name="main.columns.grid-main" htmlClass="col-md-9 col-xl-10 grid-main" htmlTag="div" before="-"/>
             <container name="main.columns.grid-left" htmlClass="col-md-3 col-xl-2 grid-left" htmlTag="div"
                        after="main.columns.grid-main"/>
+
         </container>
     </referenceContainer>
     <move element="main" destination="main.columns.grid-main"/>
     <move element="div.sidebar.main" destination="main.columns.grid-left"/>
     <move element="div.sidebar.additional" destination="main.columns.grid-left"/>
+    <move element="finder.page.header.wrap" destination="main.columns.grid-left" as="new_finder" before="div.sidebar.main"  />
+
+
 </layout>

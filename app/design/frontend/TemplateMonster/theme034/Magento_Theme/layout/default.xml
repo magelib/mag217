@@ -174,8 +174,18 @@
 
         <!-- After Page Header Columns -->
         <referenceContainer name="page.wrapper">
-            <container name="after.page.header.wrap.class" htmlTag="div" htmlClass="after-page-header-wrap" after="header.container">
+            <container name="after.page.header.wrap.class" htmlTag="div" htmlClass="after-page-header-wrap" after="finder.page.header.wrap">
                 <container name="after.page.header.wrap.columns" label="After Page Header Columns"/>
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="page.wrapper">
+            <container name="finder.page.header.wrap" htmlTag="div" htmlClass="finder-page-header-wrap" after="header.container">
+                <block class="Magebees\Finder\Block\Finder" name="finder1" template="finder.phtml">
+                    <arguments>
+                        <argument name="finder_id" xsi:type="string">1</argument>
+                    </arguments>
+                </block>
             </container>
         </referenceContainer>
 
