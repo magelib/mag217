@@ -1,8 +1,15 @@
 
-.finderProducts { padding:15px; background-color:#f0f0f0; margin-bottom:20px; }
+.finderProducts { padding:15px; background-color:#f0f1f2;}
+/*edit by jane*/
+.finderProducts button {
+    padding: 10px 20px !important;
+}
+.finderProducts .finderDropdowns li select {background-color: #fff; padding: 10px 10px;}
 .finderProducts h3 { margin-top:0; font-size:2rem; font-weight:700; text-transform:uppercase; }
 .finderProducts:after, .finderProducts:before,.finderProducts ul:after { content:''; clear:both; display:block; }
-.finderProducts ul { list-style:none; margin:0; padding-left:0; }
+.finderProducts ul { float: left;width: 100%; list-style:none; margin:0; padding-left:0; }
+
+
 
 .finderDropdowns li label { font-weight:600; }
 .finderDropdowns li.column2 { width:49%; float:left; margin-right:2%; }
@@ -14,9 +21,9 @@
 .finderDropdowns li.column5 { width:18.4%; float:left; margin-right:2%; }
 .finderDropdowns li:nth-child(5n).column5 { margin-right:0; }
 
+
 .columns .column.main { width:100%; flex-basis:inherit !important; }
 
-.finderProducts.vertical { max-width:580px; }
 .finderProducts.vertical .finderDropdowns li.column2, .finderProducts.vertical .finderDropdowns li.column3,
 .finderProducts.vertical .finderDropdowns li.column4, .finderProducts.vertical .finderDropdowns li.column5 { width:100%; margin:0 0 10px; }
 
@@ -24,10 +31,78 @@
 
 .cl { clear:both; }
 
+.finderProducts button.action.primary:hover {
+    background-color: #606060;
+}
+/*first-main*/
+.horizontal h4{
+    float: left;
+    margin: 1% 2%;
+    color: #fff;
+}
+.horizontal {
+    background-color: #0d0d0d;
+}
+.horizontal .finderDropdowns {
+    display: inline-block;
+    width: 69%;
+}
+.horizontal .finderDropdowns li {
+    width: 31%;
+}
+.horizontal .button {
+    display: inline-block;
+    color: #fff;
+}
+
+.vertical {
+    margin-bottom: 68px;
+}
+.vertical h4 {
+    font-size: 1.45rem;
+}
+@media (max-width: 1500px) and (min-width: 1279px) {
+    .horizontal .finderDropdowns {
+        display: inline-block;
+        width: 65%;
+    }
+}
+@media (max-width: 1279px) and (min-width: 1024px) {
+    .horizontal .finderDropdowns {
+        display: inline-block;
+        width: 55%;
+    }
+}
+@media (max-width: 1024px) and (min-width: 999px) {
+    .horizontal .finderDropdowns {
+        display: inline-block;
+        width: 50%;
+    }
+}
+
 @media only screen and (max-width:999px) {
     .finderDropdowns li.column5 { width:23.5%; }
     .finderDropdowns li:nth-child(4n).column5 { margin-right:0; }
     .finderDropdowns li:nth-child(5n).column5 { margin-right:2%; }
+    .finderProducts {
+        text-align: center;
+    }
+    .horizontal .finderDropdowns {
+        width: 90%;
+    }
+    .horizontal h4 {
+        float: none;
+    }
+    .horizontal li.column4{
+        margin: 10px 0;
+        width: 100%;
+    }
+    .horizontal select {
+        width: 90% !important;
+    }
+    .horizontal .button {
+        margin: 10px;
+    }
 }
 
 @media only screen and (max-width:768px) {
@@ -37,8 +112,48 @@
     
     .finderDropdowns li.column5 { width:49%; }
     .finderDropdowns li:nth-child(2n).column5 { margin-right:0; }
+    .finderProducts {
+        text-align: center;
+    }
+
+    .horizontal .finderDropdowns {
+        width: 90%;
+    }
+    .horizontal h4 {
+        float: none;
+    }
+    .horizontal li.column4{
+        margin: 10px 0;
+        width: 100%;
+    }
+    .horizontal select {
+        width: 90% !important;
+    }
+    .horizontal .button {
+        margin: 10px;
+    }
 }
 
 @media only screen and (max-width:599px) {
     .finderDropdowns li.column2, .finderDropdowns li.column3, .finderDropdowns li.column4, .finderDropdowns li.column5 { width:100%; margin-right:0; }
+    .finderProducts {
+        text-align: center;
+    }
+
+    .horizontal .finderDropdowns {
+        width: 90%;
+    }
+    .horizontal h4 {
+        float: none;
+    }
+    .horizontal li.column4{
+        margin: 10px 0;
+        width: 100%;
+    }
+    .horizontal select {
+        width: 90% !important;
+    }
+    .horizontal .button {
+        margin: 10px;
+    }
 }

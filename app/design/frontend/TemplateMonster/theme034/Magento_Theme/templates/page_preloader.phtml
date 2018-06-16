@@ -41,8 +41,8 @@
         content: '';
         width: 49px;
         height: 5px;
-        background: rgb(0,0,0);
-        opacity: 0.1;
+        background-color: #000;
+        opacity: 0.5;
         position: absolute;
         top: 58px;
         left: 0;
@@ -53,116 +53,93 @@
         -webkit-animation: shadow 0.58s linear infinite;
         -moz-animation: shadow 0.58s linear infinite;
     }
+    @font-face {font-family: "iconfont";
+            src: url('iconfont.eot?t=1528684409959'); /* IE9*/
+            src: url('iconfont.eot?t=1528684409959#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+            url('iconfont.ttf?t=1528684409959') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+            url('iconfont.svg?t=1528684409959#iconfont') format('svg'); /* iOS 4.1- */
+        }
+        .iconfont {
+            font-family:"iconfont" !important;
+            font-size: 70px;
+            font-style: normal;
+            color: #ff6c00;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-    #page-preloader .spinner:after,
-    body .loading-mask .loader:after {
-        content: '';
-        width: 49px;
-        height: 49px;
-        background: rgb(255,60,0);
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-radius: 3px;
-        animation: cssload-animate 0.58s linear infinite;
-        -o-animation: cssload-animate 0.58s linear infinite;
-        -ms-animation: cssload-animate 0.58s linear infinite;
-        -webkit-animation: cssload-animate 0.58s linear infinite;
-        -moz-animation: cssload-animate 0.58s linear infinite;
-    }
+        .icon-lunzi:before { content: "\e613"; }
+        .wheel {
+            position: absolute;
+            top:-20px;
+            left: -10px;
+            transition: 0.5s;
+            animation: cssload-animate 0.58s linear infinite;
+            -o-animation: cssload-animate 0.58s linear infinite;
+            -ms-animation: cssload-animate 0.58s linear infinite;
+            -webkit-animation: cssload-animate 0.58s linear infinite;
+            -moz-animation: cssload-animate 0.58s linear infinite;
+            transform-origin: 50% 40%;
+        }
 
     @keyframes cssload-animate {
-        17% {
-            border-bottom-right-radius: 3px;
+        0%{
+            transform: rotate(0);
         }
-        25% {
-            transform: translateY(9px) rotate(22.5deg);
+        50%{
+            transform:rotate(180deg);
         }
-        50% {
-            transform: translateY(18px) scale(1, 0.9) rotate(45deg);
-            border-bottom-right-radius: 39px;
-        }
-        75% {
-            transform: translateY(9px) rotate(67.5deg);
-        }
-        100% {
-            transform: translateY(0) rotate(90deg);
+        100%{
+            transform: rotate(360deg);
         }
     }
 
     @-o-keyframes cssload-animate {
-        17% {
-            border-bottom-right-radius: 3px;
+        0%{
+            transform: rotate(0);
         }
-        25% {
-            -o-transform: translateY(9px) rotate(22.5deg);
+        50%{
+            transform:rotate(180deg);
         }
-        50% {
-            -o-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
-            border-bottom-right-radius: 39px;
-        }
-        75% {
-            -o-transform: translateY(9px) rotate(67.5deg);
-        }
-        100% {
-            -o-transform: translateY(0) rotate(90deg);
+        100%{
+            transform: rotate(360deg);
         }
     }
 
     @-ms-keyframes cssload-animate {
-        17% {
-            border-bottom-right-radius: 3px;
+        0%{
+            transform: rotate(0);
         }
-        25% {
-            -ms-transform: translateY(9px) rotate(22.5deg);
+        50%{
+            transform:rotate(180deg);
         }
-        50% {
-            -ms-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
-            border-bottom-right-radius: 39px;
-        }
-        75% {
-            -ms-transform: translateY(9px) rotate(67.5deg);
-        }
-        100% {
-            -ms-transform: translateY(0) rotate(90deg);
+        100%{
+            transform: rotate(360deg);
         }
     }
 
     @-webkit-keyframes cssload-animate {
-        17% {
-            border-bottom-right-radius: 3px;
+        0%{
+            transform: rotate(0);
         }
-        25% {
-            -webkit-transform: translateY(9px) rotate(22.5deg);
+        50%{
+            transform:rotate(180deg);
         }
-        50% {
-            -webkit-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
-            border-bottom-right-radius: 39px;
-        }
-        75% {
-            -webkit-transform: translateY(9px) rotate(67.5deg);
-        }
-        100% {
-            -webkit-transform: translateY(0) rotate(90deg);
+        100%{
+            transform: rotate(360deg);
         }
     }
 
     @-moz-keyframes cssload-animate {
-        17% {
-            border-bottom-right-radius: 3px;
+        0%{
+            transform: rotate(0);
         }
-        25% {
-            -moz-transform: translateY(9px) rotate(22.5deg);
+        50%{
+            transform:rotate(180deg);
         }
-        50% {
-            -moz-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
-            border-bottom-right-radius: 39px;
-        }
-        75% {
-            -moz-transform: translateY(9px) rotate(67.5deg);
-        }
-        100% {
-            -moz-transform: translateY(0) rotate(90deg);
+        100%{
+            transform: rotate(360deg);
         }
     }
 
@@ -246,5 +223,9 @@
 </script>
 
 <div id="page-preloader">
-    <div class="spinner"></div>
+    <div class="spinner">
+    <div class="wheel">
+               <i class="iconfont icon-lunzi"></i>
+           </div>
+    </div>
 </div>
