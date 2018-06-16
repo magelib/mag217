@@ -82,7 +82,7 @@
             left: 0;
             width: 100%;
             padding: 15px 0 0;
-            margin-top: 39px;
+            margin-top: 4px;
             background-color: $secondary-2;
             background-image: url(../images/mega-menu-bg.jpg);
             background-repeat: no-repeat;
@@ -126,9 +126,8 @@
         }
         .mm-label{
             background-color: $primary;
-            top: 8px;
-            bottom: 6px;
-            left: 100%;
+            top: -10px;
+            left: 80%;
             margin-left: 3px;
             font-size: 10px;
             line-height: 1;
@@ -159,7 +158,7 @@
 
 .rd-navbar-static{
     .navigation {
-        margin-left: 59px;
+        margin-left: 0;
     }
 
     // Megamenu off styles
@@ -227,8 +226,11 @@
             padding: 6px 16px 6px 34px;
             text-transform: uppercase;
             letter-spacing: .04em;
-            color: $accent;
+            color: $white;
 
+            &:hover {
+                color: #ff6c00;
+            }
             &:before,
             &:after {
                 content: '';
@@ -240,6 +242,7 @@
                 border-radius: 50%;
                 transition: .3s all ease;
             }
+
 
             &:before {
                 background: $accent;
@@ -356,9 +359,21 @@
 
         > li{
             display: inline-block;
+            border-left: solid #000 1px;
+            border-right: solid #323232 1px;
+            padding: 8px 25px 8px 20px;
+            &:last-child {
+                border-right: 0;
+            }
+            &:first-child {
+                border-left: 0;
+            }
+            &:hover {
+                background-color: #0d0d0d;
+            }
 
             &+ li {
-                margin-left: 55px;
+                padding: 8px 25px 8px 20px;
             }
 
             > .rd-navbar-dropdown, > .rd-navbar-megamenu{
@@ -368,7 +383,7 @@
 
             > .rd-navbar-dropdown{
                 left: 0;
-                margin-top: 39px;
+                margin-top: 4px;
 
                 .rd-navbar-dropdown{
                     left: 100%;
@@ -384,9 +399,9 @@
                 line-height: 26px;
                 letter-spacing: .06em;
                 text-transform: uppercase;
-                color: $accent;
+                color: $white;
 
-                &:after {
+                /*&:after {
                     content: '';
                     position: absolute;
                     left: 0;
@@ -396,7 +411,7 @@
                     background: $primary;
                     transition: .3s all ease;
                     transition-duration: .6s;
-                }
+                }*/
             }
 
             &.active > a, &.opened > a,

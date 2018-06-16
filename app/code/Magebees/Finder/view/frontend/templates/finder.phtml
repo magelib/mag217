@@ -32,7 +32,7 @@ if ($finders->getStatus() && count($finderDropdowns)!="") { ?>
         <?php endif  ?>
         <form action="<?php echo $this->getSearchResultUrl(); ?>" id="finderform_<?php echo $finderId ?>" name="finderform"  class="finderform" method="post">
             <input type="hidden" name="finder_id" value="<?php echo $finderId ?>">
-            <h3 class="finder_header"><?php echo __($finders->getTitle()); ?></h3>
+            <h4 class="finder_header"><?php echo __($finders->getTitle()); ?></h4>
             <div id="<?php echo "finderDropdowns_".$finderId ?>" class="finderDropdowns">
                 <ul>
                     <?php $i=1;?>
