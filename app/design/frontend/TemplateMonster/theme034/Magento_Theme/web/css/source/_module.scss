@@ -201,7 +201,6 @@ button.action-accept{
 
         .logo {
             display: inline-block;
-            margin-top: 32px;
         }
 
         @media (min-width: $screen-md-min) {
@@ -493,7 +492,7 @@ $switcher-dropdown-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.2);
 //  --------------------------------------------
 
 .page-main{
-    margin-top: 42px;
+    margin-top: 0;
     margin-bottom: 42px;
     @media (min-width: $screen-mob-min){
         margin-top: 59px;
@@ -578,7 +577,7 @@ $switcher-dropdown-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.2);
         }
         .grid-left{
             @include order(2);
-            margin-top: $gutter-width;
+            margin-top: 0;
         }
         .grid-right{
             @include order(3);

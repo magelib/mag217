@@ -5743,8 +5743,7 @@ button.action-accept {
     margin-left: auto;
     text-align: center; }
     .page-header__content-inner .logo {
-      display: inline-block;
-      margin-top: 32px; }
+      display: inline-block; }
     @media (min-width: 992px) {
       .page-header__content-inner {
         position: relative;
@@ -5944,7 +5943,7 @@ button.action-accept {
           color: #ff6c00; }
 
 .page-main {
-  margin-top: 42px;
+  margin-top: 0;
   margin-bottom: 42px; }
   @media (min-width: 992px) {
     .page-main {
@@ -6033,7 +6032,7 @@ button.action-accept {
     -webkit-order: 1;
     -ms-flex-order: 1;
     order: 1;
-    margin-top: 40px; }
+    margin-top: 10px; }
   .page-layout-3columns .grid-right,
   .page-layout-2columns-right .grid-right,
   .page-layout-2columns-left .grid-right {
