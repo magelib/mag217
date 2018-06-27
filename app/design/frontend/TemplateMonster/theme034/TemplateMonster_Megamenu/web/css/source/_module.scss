@@ -462,3 +462,22 @@
         }
     }
 }
+@media (max-width: 1500px) {
+    .rd-navbar-static {
+        .rd-navbar-nav {
+            > li {
+                font-size: 14px;
+                width: 12%;
+            }
+            .nav-3 {
+                width: 13%;
+            }
+            .nav-5 {
+                width: 10%;
+            }
+            .nav-6 {
+                width: 16%;
+            }
+        }
+    }
+}

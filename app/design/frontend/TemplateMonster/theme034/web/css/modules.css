@@ -5734,6 +5734,9 @@ button.action-accept {
   @media (min-width: 992px) {
     .page-header__panel {
       padding-left: 40px; } }
+  @media (max-width: 992px) {
+    .page-header__panel {
+      margin-top: -30px; } }
 
 .page-header__content {
   padding: 15px; }
@@ -11222,6 +11225,16 @@ a.sp-video:after {
   .rd-navbar-fixed .rd-navbar-submenu .megamenu-wrapper.rd-navbar-megamenu ul li li > a {
     padding-left: 47px;
     padding-right: 0; } }
+@media (max-width: 1500px) {
+  .rd-navbar-static .rd-navbar-nav > li {
+    font-size: 14px;
+    width: 12%; }
+  .rd-navbar-static .rd-navbar-nav .nav-3 {
+    width: 13%; }
+  .rd-navbar-static .rd-navbar-nav .nav-5 {
+    width: 10%; }
+  .rd-navbar-static .rd-navbar-nav .nav-6 {
+    width: 16%; } }
 /*
 * TM_Newsletter-popup
 */
